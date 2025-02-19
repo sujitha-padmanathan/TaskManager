@@ -2,6 +2,8 @@ import { Row, Spinner, Button } from "react-bootstrap";
 import TaskCard from "./TaskCard";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilter } from "../../redux/reducer/taskReducer";
+import NoData from "../ui/NoData";
+
 const TaskList = () => {
   const { tasks, filter, isLoading } = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
@@ -44,10 +46,13 @@ const TaskList = () => {
         </Button>
       </div>
       <Row>
-        {Array.isArray(filteredTasks) &&
+        {Array.isArray(filteredTasks) && filteredTasks.length > 0 ? (
           filteredTasks.map((item) => {
             return <TaskCard {...item} />;
-          })}
+          })
+        ) : (
+          <NoData />
+        )}
       </Row>
     </>
   );
