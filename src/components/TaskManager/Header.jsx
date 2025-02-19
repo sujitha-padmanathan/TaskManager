@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuid } from "uuid";
 import { Button } from "react-bootstrap";
+import { addTaskAsync } from "../../redux/reducer/taskReducer";
 
 const Header = () => {
   const [task, setTask] = useState("");

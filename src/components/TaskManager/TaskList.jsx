@@ -47,7 +47,7 @@ const TaskList = () => {
       </div>
       <Row>
         {Array.isArray(filteredTasks) && filteredTasks.length > 0 ? (
-          filteredTasks.map((item) => {
+          filteredTasks.reverse().map((item) => {
             return <TaskCard {...item} />;
           })
         ) : (
